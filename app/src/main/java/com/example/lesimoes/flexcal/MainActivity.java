@@ -25,13 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViews();
 
-
-
-        mEditAlcool = findViewById(R.id.editAlcool);
-        mEditGasolina = findViewById(R.id.editGasolina);
-        mBtnCalculate = findViewById(R.id.btnCalc);
-        mTextResult = findViewById(R.id.textResult);
 
         mBtnCalculate.setOnClickListener(this);
 
@@ -42,29 +37,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         int id = view.getId();
 
-
         if(id == R.id.btnCalc) {
             try {
-                calculate(mEditAlcool.getCurrencyDouble(),
-                        mEditGasolina.getCurrencyDouble());
-            } catch (ParseException e) {
-                e.printStackTrace();
+                mTextResult.setText(Calculate.getBetterFuelCurrencyEditText(mEditAlcool, mEditGasolina));
             } catch (NumberFormatException e) {
                 Toast.makeText(getApplicationContext(), R.string.msg_empty_edit, Toast.LENGTH_SHORT).show();
             }
         }
 
-
     }
 
-
-    private void calculate(double alcoolValue, double gasolinaValue) {
-        if(alcoolValue * 0.7 >= gasolinaValue) {
-            mTextResult.setText("Álcool");
-        } else {
-            mTextResult.setText("Gasolina");
-        }
-
+    private void findViews() {
+        mEditAlcool = this.findViewById(R.id.editAlcool);
+        mEditGasolina = this.findViewById(R.id.editGasolina);
+        mBtnCalculate = this.findViewById(R.id.btnCalc);
+        mTextResult = this.findViewById(R.id.textResult);
     }
 
 
