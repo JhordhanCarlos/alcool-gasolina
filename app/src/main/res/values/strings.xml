@@ -4,4 +4,5 @@
     <string name="text_gasolina">Litro Gasolina</string>
     <string name="text_alcool">Litro Álcool</string>
     <string name="btn_calcular">Calcular</string>
+    <string name="msg_empty_edit">Informe os valores</string>
 </resources>

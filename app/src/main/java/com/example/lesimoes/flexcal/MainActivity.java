@@ -7,12 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.ParseException;
+
+import faranjit.currency.edittext.CurrencyEditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    private EditText mEditAlcool;
-    private EditText mEditGasolina;
+    private CurrencyEditText mEditAlcool;
+    private CurrencyEditText mEditGasolina;
     private Button mBtnCalculate;
     private TextView mTextResult;
 
@@ -38,9 +43,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = view.getId();
 
 
-        if(id == R.id.btnCalc)
-            calculate(Double.valueOf(mEditAlcool.getText().toString()),
-                Double.valueOf(mEditGasolina.getText().toString()));
+        if(id == R.id.btnCalc) {
+            try {
+                calculate(mEditAlcool.getCurrencyDouble(),
+                        mEditGasolina.getCurrencyDouble());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            } catch (NumberFormatException e) {
+                Toast.makeText(getApplicationContext(), R.string.msg_empty_edit, Toast.LENGTH_SHORT).show();
+            }
+        }
 
 
     }

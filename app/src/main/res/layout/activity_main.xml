@@ -36,13 +36,14 @@
         android:layout_marginEnd="24dp"
         android:layout_marginTop="128dp"
         android:ems="10"
+        android:hint="R$0,00"
         android:inputType="numberDecimal"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/btnCalc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        android:textAlignment="center"
         app:locale="pt_BR"
-        app:showSymbol="true"/>
+        app:showSymbol="true" />
 
     <faranjit.currency.edittext.CurrencyEditText
         android:id="@+id/editGasolina"
@@ -52,13 +53,14 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="128dp"
         android:ems="10"
+        android:hint="R$0,00"
         android:inputType="numberDecimal"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/btnCalc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        android:textAlignment="center"
         app:locale="pt_BR"
-        app:showSymbol="true"/>
+        app:showSymbol="true" />
 
     <TextView
         android:id="@+id/textViewAlcool"
