@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <faranjit.currency.edittext.CurrencyEditText
         android:id="@+id/editAlcool"
         android:layout_width="154dp"
         android:layout_height="54dp"
@@ -36,12 +36,16 @@
         android:layout_marginEnd="24dp"
         android:layout_marginTop="128dp"
         android:ems="10"
+        android:hint="R$0,00"
         android:inputType="numberDecimal"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/btnCalc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:locale="pt_BR"
+        app:showSymbol="true" />
 
-    <EditText
+    <faranjit.currency.edittext.CurrencyEditText
         android:id="@+id/editGasolina"
         android:layout_width="154dp"
         android:layout_height="54dp"
@@ -49,10 +53,14 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="128dp"
         android:ems="10"
+        android:hint="R$0,00"
         android:inputType="numberDecimal"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/btnCalc"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:locale="pt_BR"
+        app:showSymbol="true" />
 
     <TextView
         android:id="@+id/textViewAlcool"
@@ -79,4 +87,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCalc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
