@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText mEditGasolina;
     private Button mBtnCalculate;
     private TextView mTextResult;
+    private TextView mMainTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,16 +23,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
 
-
+        mMainTitle = findViewById(R.id.textViewMainTitle);
         mEditAlcool = findViewById(R.id.editAlcool);
         mEditGasolina = findViewById(R.id.editGasolina);
         mBtnCalculate = findViewById(R.id.btnCalc);
         mTextResult = findViewById(R.id.textResult);
 
+
+
         mBtnCalculate.setOnClickListener(this);
 
 
     }
+
+
 
     @Override
     public void onClick(View view) {
