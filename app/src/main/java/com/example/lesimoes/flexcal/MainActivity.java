@@ -1,5 +1,7 @@
 package com.example.lesimoes.flexcal;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private CurrencyEditText mEditGasolina;
     private Button mBtnCalculate;
     private TextView mTextResult;
+    private SharedPreferences mPreferences;
+    private SharedPreferences.Editor mEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +31,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         findViews();
 
-
         mBtnCalculate.setOnClickListener(this);
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mPreferences.edit();
+
+        mEditAlcool.setText(mPreferences.getString("priceAlcool", "0.00"));
+        mEditGasolina.setText(mPreferences.getString("priceGas", "0.00"));
     }
 
     @Override
@@ -40,8 +54,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(id == R.id.btnCalc) {
             try {
                 mTextResult.setText(Calculate.getBetterFuelCurrencyEditText(mEditAlcool, mEditGasolina));
+
+                mEditor.putString("priceAlcool",mEditAlcool.getCurrencyText());
+                mEditor.putString("priceGas", mEditGasolina.getCurrencyText());
+
+                mEditor.commit();
+
             } catch (NumberFormatException e) {
                 Toast.makeText(getApplicationContext(), R.string.msg_empty_edit, Toast.LENGTH_SHORT).show();
+            } catch (ParseException ex) {
+                Log.e("Currency", "Currency convert error");
             }
         }
 

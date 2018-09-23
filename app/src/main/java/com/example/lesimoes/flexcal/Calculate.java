@@ -12,9 +12,7 @@ public abstract class Calculate  {
     public static String getBetterFuelCurrencyEditText(CurrencyEditText mEditAlcool, CurrencyEditText mEditGasolina) {
 
         try {
-
             return Calculate.getBetterFuel(mEditAlcool.getCurrencyDouble(), mEditAlcool.getCurrencyDouble());
-
         } catch (ParseException e) {
             e.printStackTrace();
         }
