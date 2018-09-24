@@ -13,11 +13,13 @@
         android:layout_width="120dp"
         android:layout_height="25dp"
         android:layout_marginEnd="64dp"
+        android:layout_marginStart="16dp"
         android:text="@string/text_gasolina"
         android:textAlignment="center"
         android:textColor="@color/textColor"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewAlcool"
         app:layout_constraintTop_toBottomOf="@+id/editAlcool" />
 
     <TextView
@@ -41,7 +43,7 @@
         android:layout_width="120dp"
         android:layout_height="54dp"
         android:layout_marginEnd="64dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="R$0,00"
@@ -59,6 +61,7 @@
         android:id="@+id/editGasolina"
         android:layout_width="120dp"
         android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
         android:ems="10"
@@ -67,6 +70,7 @@
         android:textAlignment="center"
         android:textColor="@color/textColor"
         android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/editAlcool"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMainTitle"
         app:locale="pt_BR"
@@ -76,11 +80,13 @@
         android:id="@+id/textViewAlcool"
         android:layout_width="120dp"
         android:layout_height="25dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginStart="64dp"
         android:text="@string/text_alcool"
         android:textAlignment="center"
         android:textColor="@color/textColor"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textViewGasolina"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editGasolina" />
 
