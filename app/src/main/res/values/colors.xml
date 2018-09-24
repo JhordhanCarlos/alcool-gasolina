@@ -3,4 +3,8 @@
     <color name="colorPrimary">#4caf50</color>
     <color name="colorPrimaryDark">#388e3c</color>
     <color name="colorAccent">#ffeb3b</color>
+    <color name="buttonCalc">#ffee58</color>
+    <color name="headCard">#ffee58</color>color>
+    <color name="background">#66bb6a</color>>
+    <color name="textColor">#ffffff</color>
 </resources>

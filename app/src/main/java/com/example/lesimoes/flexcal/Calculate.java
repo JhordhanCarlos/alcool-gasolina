@@ -22,9 +22,9 @@ public abstract class Calculate  {
 
     public static String getBetterFuel(double alcoolValue, double gasolinaValue) {
 
-        if(alcoolValue * 0.7 >= gasolinaValue) return "Álcool";
+        if(alcoolValue * 0.7 >= gasolinaValue) return "Melhor opção: Álcool";
 
-        return "Gasolina";
+        return "Melhor opção: Gasolina";
     }
 
 }

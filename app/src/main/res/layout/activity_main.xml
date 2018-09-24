@@ -4,14 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
+    android:minHeight="68dp"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textViewGasolina"
-        android:layout_width="95dp"
+        android:layout_width="120dp"
         android:layout_height="25dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="64dp"
         android:text="@string/text_gasolina"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editAlcool" />
 
@@ -21,83 +26,134 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif"
         android:text="@string/main_title"
+        android:textColor="@color/textColor"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <faranjit.currency.edittext.CurrencyEditText
         android:id="@+id/editAlcool"
-        android:layout_width="154dp"
+        android:layout_width="120dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="128dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="R$0,00"
         android:inputType="numberDecimal"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/btnCalc"
+        android:textColor="@color/textColor"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/editGasolina"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMainTitle"
         app:locale="pt_BR"
         app:showSymbol="true" />
 
     <faranjit.currency.edittext.CurrencyEditText
         android:id="@+id/editGasolina"
-        android:layout_width="154dp"
+        android:layout_width="120dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="128dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="R$0,00"
         android:inputType="numberDecimal"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/btnCalc"
+        android:textColor="@color/textColor"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMainTitle"
         app:locale="pt_BR"
         app:showSymbol="true" />
 
     <TextView
         android:id="@+id/textViewAlcool"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="25dp"
-        android:layout_marginStart="105dp"
+        android:layout_marginStart="64dp"
         android:text="@string/text_alcool"
-        android:textAlignment="viewEnd"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editGasolina" />
 
     <Button
         android:id="@+id/btnCalc"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="57dp"
         android:layout_margin="20dp"
-        android:layout_marginBottom="128dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:layout_marginEnd="256dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/buttonCalc"
         android:elevation="0dp"
         android:text="@string/btn_calcular"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAlcool" />
 
-    <TextView
-        android:id="@+id/textResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnCalc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="8dp"
+        card_view:cardCornerRadius="4dp"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintHorizontal_bias="1.0"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toBottomOf="@+id/btnCalc"
+        card_view:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/heading_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/headCard"
+                android:orientation="vertical"
+                android:padding="36dp">
+
+
+                <TextView
+                    android:id="@+id/textResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/btnCalc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <SeekBar
+                    android:id="@+id/seekBar2"
+                    android:layout_width="247dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
 
 </android.support.constraint.ConstraintLayout>
