@@ -8,6 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="customSeekBar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:progressBackgroundTint">#2e7d32</item>
+        <item name="android:progressTint">#81c784</item>
+        <item name="android:thumbTint">#1b5e20</item>
+
+    </style>
+
     <style name="FlexCal" parent="AppTheme" />
 
 </resources>

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,10 +26,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private CurrencyEditText mEditAlcool;
     private CurrencyEditText mEditGasolina;
     private Button mBtnCalculate;
-    private TextView mTextResult;
+    private TextView mTextResult, mValueChange, mChangeGas, mChangeAlcool;
     private SharedPreferences mPreferences;
     private SharedPreferences.Editor mEditor;
     private CardView mCardResult;
+    private SeekBar mSeekBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViews();
 
         mBtnCalculate.setOnClickListener(this);
+        mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                mValueChange.setText("R$"+ i*5 + ".00");
+
+                try {
+                    double valueGas =  (i * 5) / mEditGasolina.getCurrencyDouble();
+                    double valueAlc =  (i * 5) / mEditAlcool.getCurrencyDouble();
+                    mChangeGas.setText(String.format("%.2f Litros de Gasolina", valueGas));
+                    mChangeAlcool.setText(String.format("%.2f Litros de Alcool", valueAlc));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
 
     }
@@ -67,7 +96,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 mEditor.commit();
 
+
+                double valueGas =  (mSeekBar.getProgress() * 5) / mEditGasolina.getCurrencyDouble();
+                double valueAlc =  (mSeekBar.getProgress() * 5) / mEditAlcool.getCurrencyDouble();
+                mChangeGas.setText(String.format("%.2f Litros de Gasolina", valueGas));
+                mChangeAlcool.setText(String.format("%.2f Litros de Alcool", valueAlc));
+
+
                 mCardResult.setVisibility(View.VISIBLE);
+
 
                 YoYo.with(Techniques.SlideInUp)
                     .duration(300)
@@ -82,12 +119,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
     private void findViews() {
         mEditAlcool = this.findViewById(R.id.editAlcool);
         mEditGasolina = this.findViewById(R.id.editGasolina);
         mBtnCalculate = this.findViewById(R.id.btnCalc);
         mTextResult = this.findViewById(R.id.textResult);
         mCardResult = this.findViewById(R.id.card_view);
+        mSeekBar = this.findViewById(R.id.valueSeekBar);
+        mSeekBar.setMax(60);
+        mValueChange = this.findViewById(R.id.valueChange);
+        mValueChange.setText("R$0,00");
+        mChangeGas = this.findViewById(R.id.changeGas);
+        mChangeAlcool = this.findViewById(R.id.changeAlcool);
+
     }
 
 

@@ -20,7 +20,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewAlcool"
-        app:layout_constraintTop_toBottomOf="@+id/editAlcool" />
+        app:layout_constraintTop_toBottomOf="@+id/editGasolina" />
 
     <TextView
         android:id="@+id/textViewMainTitle"
@@ -42,8 +42,8 @@
         android:id="@+id/editAlcool"
         android:layout_width="120dp"
         android:layout_height="54dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="R$0,00"
@@ -51,8 +51,8 @@
         android:textAlignment="center"
         android:textColor="@color/textColor"
         android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editGasolina"
+        app:layout_constraintEnd_toStartOf="@+id/editGasolina"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMainTitle"
         app:locale="pt_BR"
         app:showSymbol="true" />
@@ -61,8 +61,8 @@
         android:id="@+id/editGasolina"
         android:layout_width="120dp"
         android:layout_height="54dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="R$0,00"
@@ -70,8 +70,8 @@
         android:textAlignment="center"
         android:textColor="@color/textColor"
         android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/editAlcool"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editAlcool"
         app:layout_constraintTop_toBottomOf="@+id/textViewMainTitle"
         app:locale="pt_BR"
         app:showSymbol="true" />
@@ -80,7 +80,7 @@
         android:id="@+id/textViewAlcool"
         android:layout_width="120dp"
         android:layout_height="25dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginStart="64dp"
         android:text="@string/text_alcool"
         android:textAlignment="center"
@@ -88,7 +88,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textViewGasolina"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editGasolina" />
+        app:layout_constraintTop_toBottomOf="@+id/editAlcool" />
 
     <Button
         android:id="@+id/btnCalc"
@@ -127,7 +127,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/heading_layout"
@@ -150,12 +150,56 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
-                <SeekBar
-                    android:id="@+id/seekBar2"
-                    android:layout_width="247dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
+                    <SeekBar
+                        android:id="@+id/valueSeekBar"
+                        style="@style/customSeekBar"
+                        android:layout_width="184dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:max="60" />
+
+                    <TextView
+                        android:id="@+id/valueChange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textAlignment="viewEnd"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:text="R$0,00" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="20sp">
+
+                <TextView
+                    android:id="@+id/changeAlcool"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="viewStart"
+                    android:textSize="24sp"
+                    />
+
+                <TextView
+                    android:id="@+id/changeGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textAlignment="viewStart"
+                    android:textSize="24sp"
+                    />
             </LinearLayout>
 
         </LinearLayout>
