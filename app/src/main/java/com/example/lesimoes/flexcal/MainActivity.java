@@ -6,12 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -31,13 +33,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SharedPreferences.Editor mEditor;
     private CardView mCardResult;
     private SeekBar mSeekBar;
-
+    private Toolbar mToolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViews();
+        setSupportActionBar(mToolBar);
 
         mBtnCalculate.setOnClickListener(this);
         mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -68,6 +71,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -132,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mValueChange.setText("R$0,00");
         mChangeGas = this.findViewById(R.id.changeGas);
         mChangeAlcool = this.findViewById(R.id.changeAlcool);
+        mToolBar = this.findViewById(R.id.my_toolbar);
 
     }
 

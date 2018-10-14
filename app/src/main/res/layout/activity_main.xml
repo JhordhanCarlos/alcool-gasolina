@@ -8,6 +8,18 @@
     android:minHeight="68dp"
     tools:context=".MainActivity">
 
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="@color/textColor"/>
+
+
     <TextView
         android:id="@+id/textViewGasolina"
         android:layout_width="120dp"
@@ -28,7 +40,6 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif"
         android:text="@string/main_title"
         android:textColor="@color/textColor"
@@ -36,7 +47,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
 
     <faranjit.currency.edittext.CurrencyEditText
         android:id="@+id/editAlcool"

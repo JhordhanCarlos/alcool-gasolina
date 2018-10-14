@@ -5,4 +5,5 @@
     <string name="text_alcool">Litro Álcool</string>
     <string name="btn_calcular">Calcular</string>
     <string name="msg_empty_edit">Informe os valores</string>
+    <string name="title_activity_about">AboutActivity</string>
 </resources>
